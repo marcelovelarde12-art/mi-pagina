@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maquetación con Menú Interactivo</title>
+  <link rel="stylesheet" href="css/01maquetacion.css">
+</head>
+<body>
+<div class="contenedor">
+  <header class="grisC borderR"><pre>Header</pre></header>
+
+  <main>
+    <nav class="aqua borderR posision marginInf">
+      <pre>Menu</pre>
+      <button onclick="mostrar('queEsCSS')">¿Qué es CSS?</button>
+      <button onclick="mostrar('colores')">Figuras</button>
+      <button onclick="mostrar('degradados')">Degradados</button>
+    </nav>
+
+    <section class="grisO posision marginInf" id="contenido">
+      <!-- 1️⃣ Qué es CSS -->
+      <article class="borderR grisC marginInf" id="queEsCSS">
+        <h2>¿Qué es CSS?</h2>
+        <p>
+          CSS (Cascading Style Sheets) es el lenguaje que se usa para dar estilo a las páginas web: 
+          colores, tamaños, márgenes, posiciones, y más. Permite separar el contenido (HTML) 
+          de la presentación visual.
+        </p>
+      </article>
+
+      <!-- 2️⃣ Figuras con colores -->
+      <article class="borderR aqua marginInf oculto" id="colores">
+        <h2>Figuras con Colores</h2>
+        <p>Podemos usar CSS para crear figuras simples como cuadrados, círculos y rectángulos solo usando colores y bordes.</p>
+
+        <div class="figuras">
+          <div class="figura cuadrado">Cuadrado</div>
+          <div class="figura circulo">Círculo</div>
+          <div class="figura rectangulo">Rectángulo</div>
+        </div>
+      </article>
+
+      <!-- 3️⃣ Degradados -->
+      <article class="borderR grisC marginInf oculto" id="degradados">
+        <h2>Degradados en CSS</h2>
+        <p>
+          Los degradados permiten crear transiciones suaves entre colores. 
+          Se pueden hacer lineales o radiales usando 
+          <code>background: linear-gradient()</code>.
+        </p>
+        <div class="degradadoBox"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="grisC borderR"><pre>Footer</pre></footer>
+</div>
+
+<script>
+function mostrar(id) {
+  // Oculta todos los artículos
+  const articulos = document.querySelectorAll('section article');
+  articulos.forEach(a => a.classList.add('oculto'));
+
+  // Muestra solo el que corresponde
+  document.getElementById(id).classList.remove('oculto');
+}
+</script>
+</body>
+</html>
